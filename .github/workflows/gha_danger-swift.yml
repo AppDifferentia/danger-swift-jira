@@ -1,0 +1,20 @@
+name: Danger Swift
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: "👮‍♂️ Run Danger"
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install -g danger
+      - run: swift build -c release --product Danger
+      - run: swift run danger-swift ci -c release
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
