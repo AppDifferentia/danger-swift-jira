@@ -9,7 +9,7 @@ let package = Package(
             name: "DangerSwiftJira",
             targets: ["DangerSwiftJira"]
         ),
-        .library(name: "DangerDep", type: .dynamic, targets: ["DangerDependencies"]),
+        .library(name: "DangerDependencies", type: .dynamic, targets: ["DangerDependencies"]),
     ],
     dependencies: [
         .package(name: "danger-swift", url: "https://github.com/danger/swift", from: "3.0.0"),
