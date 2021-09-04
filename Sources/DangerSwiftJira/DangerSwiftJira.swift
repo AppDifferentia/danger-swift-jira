@@ -1,9 +1,9 @@
 import Danger
 import Foundation
 
-final class DangerSwiftJira {
+public final class DangerSwiftJira {
 
-    private let danger = Danger()
+    private let danger: DangerDSL
 
     private lazy var prTitle: String = {
         danger.gitLab?.mergeRequest.title ?? danger.github.pullRequest.title
@@ -13,7 +13,11 @@ final class DangerSwiftJira {
         danger.gitLab?.mergeRequest.description ?? danger.github.pullRequest.body
     }()
 
-    func check(
+    public init(danger: DangerDSL = Danger()) {
+        self.danger = danger
+    }
+
+    public func check(
         keys: [String],
         url: URL,
         emoji: String = ":link:",
@@ -50,10 +54,6 @@ final class DangerSwiftJira {
             }
         }
     }
-
-}
-
-private extension DangerSwiftJira {
 
     func findJiraIssues(keys: [String] = [], shouldSearchTitle: Bool = true, shouldSearchCommit: Bool = true) -> [String] {
         let keys = keys.joined(separator: "|")
