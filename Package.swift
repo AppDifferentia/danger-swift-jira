@@ -13,6 +13,7 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "danger-swift", url: "https://github.com/danger/swift", from: "3.0.0"),
+        .package(url: "https://github.com/realm/SwiftLint", .upToNextMajor(from: "0.43.0")),
     ],
     targets: [
         .target(name: "DangerDependencies", dependencies: ["danger-swift"]),
