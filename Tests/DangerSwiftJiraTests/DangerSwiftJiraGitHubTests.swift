@@ -53,7 +53,6 @@ final class DangerSwiftJiraGitHubTests: XCTestCase {
         XCTAssertTrue(dangerJira.shouldSkipJira(shouldSearchTitle: false))
     }
 
-
     func testOnlyFindUniqueIssues() {
         let dangerJira = DangerSwiftJira(danger: dangerDSL)
         let issues = dangerJira.findJiraIssues(keys: ["TEST", "MOCK"], shouldSearchTitle: true, shouldSearchCommit: false)
