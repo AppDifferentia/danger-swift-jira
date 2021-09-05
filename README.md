@@ -5,6 +5,14 @@
 
 A Danger-Swift plugin for that links JIRA issues to pull requests for both GitHub and GitLab. Inspired by [RestlessThinker/danger-jira](https://github.com/RestlessThinker/danger-jira)
 
+## Installation
+
+Add `DangerSwiftJira` to your `Package.swift`
+
+```Swift
+.package(url: "https://github.com/AppDifferentia/danger-swift-jira", from: "0.0.1")
+```
+
 ## Usage
 
 Add to your `Dangerfile.swift`
