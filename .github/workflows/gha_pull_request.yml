@@ -11,8 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: npm install -g danger
-      - run: swift build --product Danger --disable-sandbox -c release
-      - run: swift run danger-swift ci -c release
+      - run: swift build -c release
+      - run: swift run danger-swift ci -c release --dangerfile Dangerfile.swift
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_SWIFT_GITHUB_TOKEN }}
@@ -24,10 +24,10 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: npm install -g danger
-      - run: swift build --product Danger
       - run: swift test
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
   macos:
     runs-on: macos-11
@@ -35,7 +35,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: npm install -g danger
-      - run: swift build --product Danger
-      - run: swift test
+      - run: swift test --enable-code-coverage
+      - run: swift run danger-swift ci --dangerfile DangerfileCoverage.swift
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_SWIFT_GITHUB_TOKEN }}
