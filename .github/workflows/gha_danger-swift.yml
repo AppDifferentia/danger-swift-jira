@@ -10,9 +10,6 @@ jobs:
     name: "👮‍♂️ Test & Verify"
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
       - run: npm install -g danger
       - run: swift build --product Danger
       - run: swift test
