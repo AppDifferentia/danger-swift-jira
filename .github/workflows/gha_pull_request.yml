@@ -1,4 +1,4 @@
-name: Verify
+name: Pull Request
 
 on:
   pull_request:
@@ -17,3 +17,4 @@ jobs:
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_SWIFT_GITHUB_TOKEN }}
+      LINUX_SOURCEKIT_LIB_PATH: /usr/share/swift/usr/lib
