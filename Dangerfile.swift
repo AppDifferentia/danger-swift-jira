@@ -1,4 +1,5 @@
 import Danger
+import DangerSwiftCoverage
 import Foundation
 
 let danger = Danger()
