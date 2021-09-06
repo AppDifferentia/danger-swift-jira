@@ -2,7 +2,6 @@ import Danger
 import Foundation
 
 public final class DangerSwiftJira {
-
     private let danger: DangerDSL
 
     private lazy var prTitle: String = {
@@ -80,7 +79,7 @@ public final class DangerSwiftJira {
 
         if shouldSearchCommit {
             danger.git.commits
-                .map { $0.message }
+                .map(\.message)
                 .forEach(findJiraIssue(in:))
         }
 
@@ -115,5 +114,4 @@ public final class DangerSwiftJira {
         let href = url.appendingPathComponent(issue)
         return "<a href=\(href.absoluteString)>\(issue)</a>"
     }
-
 }

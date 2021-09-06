@@ -29,11 +29,11 @@ guard let github = danger.github else {
 
 // These checks only happen on a PR
 let foundWIPMessageInTitle = github.pullRequest.title.contains("Work In Progress")
-|| github.pullRequest.title.contains("WIP")
+    || github.pullRequest.title.contains("WIP")
 let foundWIPLabel = github.issue.labels.contains {
     $0.name.contains("Work In Progress")
 }
 
-if  foundWIPMessageInTitle || foundWIPLabel {
+if foundWIPMessageInTitle || foundWIPLabel {
     warn("PR is classed as Work in Progress")
 }
