@@ -20,12 +20,30 @@
         }
       },
       {
+        "package": "PackageConfig",
+        "repositoryURL": "https://github.com/shibapm/PackageConfig.git",
+        "state": {
+          "branch": null,
+          "revision": "bf90dc69fa0792894b08a0b74cf34029694ae486",
+          "version": "0.13.0"
+        }
+      },
+      {
         "package": "RequestKit",
         "repositoryURL": "https://github.com/nerdishbynature/RequestKit.git",
         "state": {
           "branch": null,
           "revision": "fd5e9e99aada7432170366c9e95967011ce13bad",
           "version": "2.4.0"
+        }
+      },
+      {
+        "package": "Rocket",
+        "repositoryURL": "https://github.com/shibapm/Rocket",
+        "state": {
+          "branch": null,
+          "revision": "51a77ce5fa66c42715c14dcc542c01cd7a60fb27",
+          "version": "1.2.0"
         }
       },
       {
@@ -65,6 +83,15 @@
         }
       },
       {
+        "package": "SwiftShell",
+        "repositoryURL": "https://github.com/kareman/SwiftShell",
+        "state": {
+          "branch": null,
+          "revision": "a6014fe94c3dbff0ad500e8da4f251a5d336530b",
+          "version": "5.1.0-beta.1"
+        }
+      },
+      {
         "package": "SwiftyTextTable",
         "repositoryURL": "https://github.com/scottrhoyt/SwiftyTextTable.git",
         "state": {
@@ -93,7 +120,7 @@
       },
       {
         "package": "Yams",
-        "repositoryURL": "https://github.com/jpsim/Yams.git",
+        "repositoryURL": "https://github.com/jpsim/Yams",
         "state": {
           "branch": null,
           "revision": "9ff1cc9327586db4e0c8f46f064b6a82ec1566fa",

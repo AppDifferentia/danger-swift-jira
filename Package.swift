@@ -5,22 +5,17 @@ import PackageDescription
 let package = Package(
     name: "DangerSwiftJira",
     products: [
-        .library(
-            name: "DangerSwiftJira",
-            targets: ["DangerSwiftJira"]
-        ),
-        .library(name: "DangerDependencies", type: .dynamic, targets: ["DangerDependencies"]),
+        .library(name: "DangerSwiftJira", targets: ["DangerSwiftJira"]),
+        .library(name: "DangerDeps", type: .dynamic, targets: ["DangerDependencies"]), // dev
     ],
     dependencies: [
         .package(name: "danger-swift", url: "https://github.com/danger/swift", from: "3.0.0"),
-        .package(url: "https://github.com/realm/SwiftLint", .upToNextMajor(from: "0.43.0")),
+        .package(url: "https://github.com/realm/SwiftLint", .upToNextMajor(from: "0.43.0")), // dev
+        .package(url: "https://github.com/shibapm/Rocket", .upToNextMajor(from: "1.2.0")), // dev
     ],
     targets: [
-        .target(name: "DangerDependencies", dependencies: ["danger-swift"]),
-        .target(
-            name: "DangerSwiftJira",
-            dependencies: ["danger-swift"]
-        ),
+        .target(name: "DangerDependencies", dependencies: ["danger-swift"]), // dev
+        .target(name: "DangerSwiftJira", dependencies: ["danger-swift"]),
         .testTarget(
             name: "DangerSwiftJiraTests",
             dependencies: [
