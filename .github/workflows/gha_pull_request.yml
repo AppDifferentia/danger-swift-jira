@@ -11,7 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: npm install -g danger
-      - run: swift build --product Danger --disable-sandbox -c release
       - run: swift run danger-swift ci -c release
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -24,7 +23,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: npm install -g danger
-      - run: swift build --product Danger
       - run: swift test
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -35,7 +33,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: npm install -g danger
-      - run: swift build --product Danger
       - run: swift test
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -14,8 +14,8 @@ let package = Package(
         .package(url: "https://github.com/shibapm/Rocket", .upToNextMajor(from: "1.2.0")), // dev
     ],
     targets: [
-        .target(name: "DangerDependencies", dependencies: ["danger-swift"]), // dev
-        .target(name: "DangerSwiftJira", dependencies: ["danger-swift"]),
+        .target(name: "DangerDependencies", dependencies: [.product(name: "Danger", package: "danger-swift")]), // dev
+        .target(name: "DangerSwiftJira", dependencies: [.product(name: "Danger", package: "danger-swift")]),
         .testTarget(
             name: "DangerSwiftJiraTests",
             dependencies: [
