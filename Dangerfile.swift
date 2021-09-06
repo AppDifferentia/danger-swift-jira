@@ -21,17 +21,19 @@ let filesToLint = (danger.git.modifiedFiles + danger.git.createdFiles)
 
 SwiftLint.lint(.files(filesToLint), inline: true)
 
-// Support running via `danger local`
+// Only run GitHub related checks when GitHub dsl is available. This allows `danger-swift local` to work.
+guard let github = danger.github else {
+    warn("Unable to parse GitHub DSL response, the GitHub related checks will be skipped. (i.e. running `danger-swift local`).")
+    exit(0)
+}
 
-if let github = danger.github {
-   // These checks only happen on a PR
-   let foundWIPMessageInTitle = github.pullRequest.title.contains("Work In Progress")
+// These checks only happen on a PR
+let foundWIPMessageInTitle = github.pullRequest.title.contains("Work In Progress")
     || github.pullRequest.title.contains("WIP")
-   let foundWIPLabel = github.issue.labels.contains {
-       $0.name.contains("Work In Progress")
-   }
+let foundWIPLabel = github.issue.labels.contains {
+    $0.name.contains("Work In Progress")
+}
 
-   if  foundWIPMessageInTitle || foundWIPLabel {
-       warn("PR is classed as Work in Progress")
-   }
+if foundWIPMessageInTitle || foundWIPLabel {
+    warn("PR is classed as Work in Progress")
 }

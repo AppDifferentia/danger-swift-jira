@@ -1,10 +1,9 @@
-import XCTest
-@testable import DangerSwiftJira
 @testable import Danger
 import DangerFixtures
+@testable import DangerSwiftJira
+import XCTest
 
 final class DangerSwiftJiraGitHubTests: XCTestCase {
-
     private var dangerDSL: DangerDSL!
 
     override func setUpWithError() throws {
@@ -65,5 +64,4 @@ final class DangerSwiftJiraGitHubTests: XCTestCase {
         let jiraHtmlLink = dangerJira.htmlLink(url: URL(string: "https://fakejira.mock")!, issue: "TEST-123")
         XCTAssertEqual(jiraHtmlLink, "<a href=https://fakejira.mock/TEST-123>TEST-123</a>")
     }
-
 }
