@@ -12,10 +12,22 @@ public final class DangerSwiftJira {
         danger.gitLab?.mergeRequest.description ?? danger.github.pullRequest.body
     }()
 
+    /// Public initializer.
+    /// - Parameter danger: The danger DSL instance. Default to call `Danger()`
     public init(danger: DangerDSL = Danger()) {
         self.danger = danger
     }
 
+    /// Checks the PR for JIRA keys and links them.
+    /// - Parameters:
+    ///   - keys: An array of JIRA project keys e.g. KEY, JIRA etc
+    ///   - url: The JIRA host URL e.g. https://myjira.atlassian.com
+    ///   - emoji: The emoji you want to display in the danger message. Default to `":link:"` or 🔗
+    ///   - shouldSearchTitle: Option to search JIRA issue in PR title. Default to `true`
+    ///   - shouldSearchCommits: Option to search JIRA issue in commit messages in the PR. Default to `false`
+    ///   - failOnWarning: Option to fail danger if no JIRA issue is found. Default to `false`
+    ///   - reportMissing: Option to report if no JIRA issue is found. Default to `true`
+    ///   - skippable: Option to skip report if `"no-jira"` is provided in PR title, description or commits
     public func check(
         keys: [String],
         url: URL,
