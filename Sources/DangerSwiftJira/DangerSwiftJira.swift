@@ -1,6 +1,21 @@
 import Danger
 import Foundation
 
+/// Links JIRA issues to a pull request.
+///
+/// ``` Swift
+/// import Danger
+///
+/// let danger = Danger()
+/// let jira = DangerSwiftJira(danger: danger)
+/// jira.check(
+///     keys: ["Keys", "JIRA"],
+///     url: URL(string: "https://myjira.atlassian.net/browse")!
+/// )
+/// ```
+///
+/// - Note:Inspired by [RestlessThinker/danger-jira](https://github.com/RestlessThinker/danger-jira)
+///
 public final class DangerSwiftJira {
     private let danger: DangerDSL
 
