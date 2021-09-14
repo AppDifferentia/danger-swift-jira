@@ -1,6 +1,8 @@
 name: Master Branch Verification
 
 on:
+  workflow_dispatch:
+
   push:
     branches:
       - master
@@ -27,7 +29,6 @@ jobs:
           include-coverage: true
         env:
           danger-token: ${{ secrets.DANGER_SWIFT_GITHUB_TOKEN }}
-
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
