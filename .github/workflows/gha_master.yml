@@ -1,28 +1,16 @@
----
-name: Verify
+name: Master Branch Verification
 
 on:
-  pull_request:
-    branches:
-      - master
+  workflow_dispatch:
+
   push:
     branches:
       - master
 
 jobs:
-  danger:
-    runs-on: ubuntu-latest
-    name: "🚫 Run Danger"
-    steps:
-      - uses: actions/checkout@v2
-      - run: npm install -g danger
-      - run: swift run danger-swift ci -c release --id "Lint"
-    env:
-      DANGER_GITHUB_API_TOKEN: ${{ secrets.DANGER_SWIFT_GITHUB_TOKEN }}
-
   linux:
     runs-on: ubuntu-latest
-    name: 🐧 Linux Test & Verify
+    name: 🐧 Linux Test
     steps:
       - uses: actions/checkout@v2
       - name: Test
@@ -32,13 +20,14 @@ jobs:
 
   macos:
     runs-on: macos-11
-    name:  MacOS Test & Verify
+    name:  MacOS Test
     steps:
       - uses: actions/checkout@v2
       - name: Test & Coverage
         uses: ./.github/actions/test-verify-action
         with:
           include-coverage: true
+        env:
           danger-token: ${{ secrets.DANGER_SWIFT_GITHUB_TOKEN }}
 
 env:
