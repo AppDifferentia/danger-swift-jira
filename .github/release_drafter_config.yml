@@ -44,5 +44,20 @@ autolabeler:
     branch:
       - '/feature\/.+/'
       - '/enhancement\/.+/'
+  - label: 'skip-changelog'
+    branch:
+      - '/release\/.+/'
+    title:
+      - '/release/i'
+  - label: 'maintenance'
+    branch:
+      - '/tech\/.+/'
+      - '/maintenance\/.+/'
+  - label: 'dependencies'
+    files:
+      - '**/Package.swift'
+  - label: 'documentation'
+    files:
+      - 'README.md'
 exclude-lables:
   - 'skip-changelog'
