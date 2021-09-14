@@ -1,9 +1,13 @@
 ---
-name: Pull Request
+name: Verify
 
 on:
   pull_request:
-    branches: [master]
+    branches:
+      - master
+  push:
+    branches:
+      - master
 
 jobs:
   danger:
